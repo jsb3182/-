@@ -1,289 +1,51 @@
-# =========================================================
-# GIS 학구도 자동 관리시스템 .gitignore
-# Vue.js + Spring Boot + PostgreSQL/PostGIS + Python 기준
-# =========================================================
-
-
-# =========================================================
-# 1. 운영체제 / 에디터 공통 불필요 파일
-# =========================================================
-
-# Windows 탐색기/썸네일 캐시
-Thumbs.db
-Desktop.ini
-
-# macOS 시스템 파일
+# OS / Editor
 .DS_Store
-
-# Linux 임시 파일
-*~
-
-# VS Code 개인 설정
+Thumbs.db
+.idea/
 .vscode/*
 !.vscode/extensions.json
-!.vscode/settings.example.json
 
-# IntelliJ IDEA 설정 파일
-.idea/
-
-# Eclipse / STS / 전자정부프레임워크 IDE 설정
-.project
-.classpath
-.settings/
-.springBeans
-.factorypath
-
-# 임시 백업 파일
-*.bak
-*.tmp
-*.swp
-*.swo
-
-
-# =========================================================
-# 2. Git / 로그 / 환경변수 / 보안 파일
-# =========================================================
-
-# 환경변수 파일 - DB 비밀번호, JWT Secret, API Key 들어갈 수 있음
+# Environment
 .env
 .env.*
 !.env.example
 
-# 로그 파일
-*.log
-logs/
-log/
-
-# 민감정보 설정 파일
-application-secret.yml
-application-secret.properties
-application-local.yml
-application-local.properties
-application-prod.yml
-application-prod.properties
-
-# 인증서 / 키 파일
-*.pem
-*.key
-*.crt
-*.p12
-*.jks
-
-# 운영 배포 설정 중 민감정보가 들어갈 수 있는 파일
-secrets/
-private/
-credentials/
-
-
-# =========================================================
-# 3. Frontend - Vue.js / Vite / Node.js
-# =========================================================
-
-# Node 의존성 폴더
+# Frontend
 frontend/node_modules/
-node_modules/
-
-# Vue/Vite 빌드 결과물
 frontend/dist/
 frontend/.vite/
-dist/
-
-# npm/yarn/pnpm 로그
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
 
-# 패키지 매니저 캐시
-.npm/
-.yarn/
-.pnpm-store/
-
-# Vue 환경변수
-frontend/.env
-frontend/.env.*
-!frontend/.env.example
-
-
-# =========================================================
-# 4. Backend - Spring Boot / Maven / Gradle
-# =========================================================
-
-# Maven 빌드 결과
-backend/target/
-target/
-
-# Gradle 빌드 결과
-backend/build/
-build/
-.gradle/
-
-# Maven Wrapper는 보통 커밋해도 됨
-# 단, wrapper jar까지 관리할지 팀 기준에 따라 결정
-# !backend/.mvn/wrapper/maven-wrapper.jar
-
-# Spring Boot 실행 중 생성되는 파일
-backend/logs/
-backend/*.log
-
-# 백엔드 환경 설정
-backend/src/main/resources/application-local.yml
-backend/src/main/resources/application-local.properties
-backend/src/main/resources/application-secret.yml
-backend/src/main/resources/application-secret.properties
-backend/src/main/resources/application-prod.yml
-backend/src/main/resources/application-prod.properties
-
-# 업로드 파일 저장 경로
-backend/uploads/
-backend/files/
-backend/temp/
-
-
-# =========================================================
-# 5. Python - 엑셀 처리 / PostGIS 적재 자동화
-# =========================================================
-
-# Python 캐시
+# Python
 __pycache__/
 *.py[cod]
-*$py.class
-
-# 가상환경
-python/.venv/
-python/venv/
-python/env/
+backend/.venv/
 .venv/
 venv/
-env/
 
-# Jupyter Notebook 체크포인트
-.ipynb_checkpoints/
+# Logs
+logs/
+*.log
 
-# Python 패키징 결과
-*.egg-info/
-.eggs/
-build/
-dist/
-
-# Python 환경변수
-python/.env
-python/.env.*
-!python/.env.example
-
-# Python 실행 결과물 / 임시 산출물
-python/output/
-python/outputs/
-python/temp/
-python/tmp/
-python/logs/
-
-
-# =========================================================
-# 6. Database - PostgreSQL / PostGIS / 백업 파일
-# =========================================================
-
-# DB 백업 파일은 용량이 크고 민감정보 포함 가능
-database/backups/
-database/backup/
-*.dump
-*.backup
-*.sql.gz
-*.tar
-
-# 단, schema.sql / seed.sql / migration SQL은 커밋 대상
-!database/schema.sql
-!database/seed.sql
-!database/migrations/
-!database/migrations/*.sql
-
-
-# =========================================================
-# 7. GIS 데이터 파일 - SHP / GeoJSON / 공간데이터
-# =========================================================
-
-# 원본 SHP는 용량이 크고 업무 데이터/개인정보 포함 가능성이 있어 제외
-data/
-gis-data/
-shp/
-shapefile/
-geodata/
-
-# ESRI Shapefile 관련 파일
+# Data / privacy
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
+*.xlsx
+*.xls
+*.xlsm
+*.csv
 *.shp
 *.shx
 *.dbf
 *.prj
 *.cpg
-*.sbn
-*.sbx
-*.qix
-*.fix
-
-# 공간데이터 파일
 *.geojson
 *.gpkg
-*.kml
-*.kmz
-*.gml
+*.dump
+*.backup
 
-# 래스터/DEM/항공사진 등 대용량 파일
-*.tif
-*.tiff
-*.img
-*.asc
-*.vrt
-
-
-# =========================================================
-# 8. 엑셀 / 업무 원본 데이터
-# =========================================================
-
-# 실제 업무 엑셀은 개인정보/업무정보 포함 가능성이 있어 제외
-*.xlsx
-*.xls
-*.xlsm
-*.csv
-
-# 단, 샘플 데이터는 커밋 가능
-!docs/sample/
-!docs/sample/*.xlsx
-!docs/sample/*.csv
-!database/sample/
-!database/sample/*.csv
-
-
-# =========================================================
-# 9. 배포 / Docker / Nginx 관련
-# =========================================================
-
-# Docker 환경변수
-docker/.env
-docker/.env.*
-!docker/.env.example
-
-# 운영 Nginx 민감 설정
-nginx/conf.d/*secret*
-nginx/ssl/
-nginx/certs/
-
-# 배포 산출물
-deploy/package/
-deploy/releases/
-*.jar
-*.war
-
-
-# =========================================================
-# 10. 테스트 / 커버리지
-# =========================================================
-
-coverage/
-.nyc_output/
-frontend/coverage/
-backend/coverage/
-
-# 테스트 임시 파일
-test-results/
-frontend/test-results/
-backend/test-results/
+# Backend build
+target/
+build/
